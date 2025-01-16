@@ -3,122 +3,223 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy</title>
+    <title>Epic Terms</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
+            min-height: 100vh;
+            background: #000;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 100px;
         }
+
         .container {
-            max-width: 800px;
-            margin: auto;
-            padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            padding-bottom: 120px; /* 增加 padding 以确保内容不被按钮遮挡 */
+            position: relative;
+            width: 90%;
+            max-width: 680px;
+            padding: 60px 40px;
+            background: linear-gradient(135deg, rgba(20, 20, 25, 0.95) 0%, rgba(28, 28, 35, 0.95) 100%);
+            border-radius: 30px;
+            backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 100px rgba(0, 0, 0, 0.5);
+            z-index: 2;
         }
-        h1 {
+
+        .notice-header {
             text-align: center;
-            color: #333;
+            margin-bottom: 60px;
+            position: relative;
         }
-        h2 {
-            color: #333;
+
+        .notice-title {
+            font-size: 100px;
+            margin: 0;
+            background: linear-gradient(45deg, #fff 10%, #666 90%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 5px;
+            font-weight: 900;
+            line-height: 1;
+            text-transform: uppercase;
+        }
+
+        .notice-subtitle {
+            font-size: 24px;
+            color: rgba(255, 255, 255, 0.5);
             margin-top: 20px;
+            letter-spacing: 10px;
+            font-weight: 300;
+            text-transform: uppercase;
         }
-        .content {
-            line-height: 1.6;
-            color: #666;
+
+        .content-box {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 25px;
+            padding: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
         }
-        ul {
-            padding-left: 20px;
+
+        .content-title {
+            font-size: 48px;
+            color: #fff;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+            font-weight: 800;
+            text-transform: uppercase;
         }
+
+        .highlight-box {
+            margin: 40px 0;
+            position: relative;
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            margin: 30px 0;
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .highlight-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateX(10px);
+        }
+
+        .highlight-icon {
+            font-size: 32px;
+            margin-right: 25px;
+            filter: grayscale(0.5);
+        }
+
+        .highlight-text {
+            font-size: 20px;
+            color: #fff;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+
         .fixed-button {
             position: fixed;
             bottom: 40px;
-            left: 20px;
-            right: 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 15px;
-            text-align: center;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 18px 50px;
             font-size: 16px;
+            font-weight: 600;
+            color: #000;
+            background: #fff;
+            border: none;
+            border-radius: 30px;
             cursor: pointer;
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
+            transition: all 0.3s ease;
+            letter-spacing: 4px;
+            z-index: 100;
+            text-transform: uppercase;
         }
+
         .fixed-button:hover {
-            background-color: #45a049;
+            transform: translateX(-50%) translateY(-2px);
+            background: #f0f0f0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            letter-spacing: 5px;
+        }
+
+        .corner-line {
+            position: absolute;
+            background: #fff;
+            opacity: 0.2;
+        }
+
+        .line-top {
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 1px;
+            width: 200px;
+        }
+
+        .line-bottom {
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 1px;
+            width: 200px;
+        }
+
+        .line-left {
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 200px;
+        }
+
+        .line-right {
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 200px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Reminder</h1>
-        <p><strong>Important: This application does not support any form of transactions or payments.</strong></p>
+        <div class="corner-line line-top"></div>
+        <div class="corner-line line-bottom"></div>
+        <div class="corner-line line-left"></div>
+        <div class="corner-line line-right"></div>
 
-        <div class="content">
-            <p>Your privacy is extremely important to us. This Privacy Policy explains the types of personal information we collect and how we use, protect, and disclose it.</p>
-
-            <h2>Information We Collect</h2>
-            <p>We collect the following types of information from users:</p>
-            <ul>
-                <li>Personal information (e.g., name, email address, phone number)</li>
-                <li>Non-personal information (e.g., browser type, operating system, usage time)</li>
-                <li>Device information (e.g., device type, unique device identifiers)</li>
-                <li>Location information (e.g., approximate location based on IP address or GPS data)</li>
-            </ul>
-
-            <h2>How We Use Your Information</h2>
-            <p>The information we collect is used for the following purposes:</p>
-            <ul>
-                <li>To operate, maintain, and improve our services</li>
-                <li>To process transactions and provide related information</li>
-                <li>To respond to your inquiries, feedback, and requests</li>
-                <li>To analyze and monitor trends and user behaviors</li>
-                <li>To develop new features and services</li>
-                <li>To detect, prevent, and address technical issues</li>
-            </ul>
-
-            <h2>Sharing Your Information</h2>
-            <p>We do not sell your personal information. However, we may share your information with third parties under the following circumstances:</p>
-            <ul>
-                <li>With your explicit consent</li>
-                <li>With service providers who assist us in delivering our services</li>
-                <li>To comply with legal requirements or respond to legal requests</li>
-                <li>To protect our rights, property, and the safety of our services</li>
-            </ul>
-
-            <h2>Your Rights and Choices</h2>
-            <p>You have the right to access, update, or delete your personal information that we hold. You can also opt-out of receiving marketing communications from us. To exercise these rights, please contact us directly using the details provided below.</p>
-
-            <h2>Data Protection</h2>
-            <p>We implement reasonable security measures to protect your personal information from unauthorized access, loss, or misuse.</p>
-
-            <h2>Children's Privacy</h2>
-            <p>Our services are not intended for children under the age of 13. We do not knowingly collect personal information from children under 13. If we become aware that we have inadvertently collected such information, we will promptly delete it.</p>
-
-            <h2>Changes to This Privacy Policy</h2>
-            <p>We may update our Privacy Policy from time to time. We will notify you of any significant changes through email or a prominent notice on our website. We encourage you to review this policy periodically to stay informed of any updates.</p>
-
-            <h2>Contact Us</h2>
-            <p>If you have any questions or concerns about this Privacy Policy, please feel free to contact us at:</p>
-            <p>Email: <a href="sharelionpro@gmail.com">newnafewy@gmail.com</a></p>
+        <div class="notice-header">
+            <h1 class="notice-title">EPIC<br>DESTINY</h1>
+            <p class="notice-subtitle">EMBRACE GLORY</p>
+        </div>
+        
+        <div class="content-box">
+            <h2 class="content-title">Warrior's Code</h2>
+            
+            <div class="highlight-box">
+                <div class="highlight-item">
+                    <span class="highlight-icon">⚔️</span>
+                    <span class="highlight-text">Fight with unmatched honor</span>
+                </div>
+                <div class="highlight-item">
+                    <span class="highlight-icon">👑</span>
+                    <span class="highlight-text">Claim your destiny</span>
+                </div>
+                <div class="highlight-item">
+                    <span class="highlight-icon">🌟</span>
+                    <span class="highlight-text">Rise to power</span>
+                </div>
+                <div class="highlight-item">
+                    <span class="highlight-icon">💫</span>
+                    <span class="highlight-text">Become legendary</span>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- 修正后的按钮代码 -->
-    <button class="fixed-button" id="gotItButton" aria-label="Got it, close the privacy policy">Got It</button>
+    <button class="fixed-button" onclick="redirectToClose()">
+        BEGIN
+    </button>
 
     <script>
-        // 绑定按钮点击事件，向 iOS 发送消息
-        document.getElementById('gotItButton').addEventListener('click', function() {
-            console.log('Button clicked'); // 用于调试，确保点击事件被触发
-            window.webkit.messageHandlers.closeActivityHandler.postMessage(null); // 向 iOS 发送消息
-        });
+        function redirectToClose() {
+            window.location.href = 'about:blank';
+        }
     </script>
 </body>
 </html>

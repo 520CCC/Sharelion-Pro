@@ -1,115 +1,169 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Epic Terms</title>
+    <title>Epic Destiny</title>
     <style>
         body {
             margin: 0;
             padding: 0;
             min-height: 100vh;
-            background: #000;
+            background: linear-gradient(135deg, #1a1b2e, #2d2f50);
             font-family: Arial, sans-serif;
             color: #fff;
-            overflow-x: hidden;
+            overflow: hidden;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding-bottom: 100px;
         }
 
         .container {
             position: relative;
             width: 90%;
             max-width: 680px;
-            padding: 60px 40px;
-            background: linear-gradient(135deg, rgba(20, 20, 25, 0.95) 0%, rgba(28, 28, 35, 0.95) 100%);
-            border-radius: 30px;
-            backdrop-filter: blur(30px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 0 100px rgba(0, 0, 0, 0.5);
-            z-index: 2;
-        }
-
-        .notice-header {
-            text-align: center;
-            margin-bottom: 60px;
-            position: relative;
+            padding: 40px;
         }
 
         .notice-title {
-            font-size: 100px;
+            font-size: 72px;
             margin: 0;
-            background: linear-gradient(45deg, #fff 10%, #666 90%);
+            background: linear-gradient(45deg, #ffd700, #ff6b6b, #7b61ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             letter-spacing: 5px;
             font-weight: 900;
-            line-height: 1;
             text-transform: uppercase;
-        }
-
-        .notice-subtitle {
-            font-size: 24px;
-            color: rgba(255, 255, 255, 0.5);
-            margin-top: 20px;
-            letter-spacing: 10px;
-            font-weight: 300;
-            text-transform: uppercase;
-        }
-
-        .content-box {
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 25px;
-            padding: 50px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            position: relative;
-        }
-
-        .content-title {
-            font-size: 48px;
-            color: #fff;
+            text-align: center;
             margin-bottom: 40px;
-            letter-spacing: 2px;
-            font-weight: 800;
-            text-transform: uppercase;
         }
 
-        .highlight-box {
-            margin: 40px 0;
-            position: relative;
-        }
-
-        .highlight-item {
-            display: flex;
-            align-items: center;
-            margin: 30px 0;
-            position: relative;
-            transition: all 0.3s ease;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .highlight-item:hover {
-            background: rgba(255, 255, 255, 0.05);
-            transform: translateX(10px);
-        }
-
-        .highlight-icon {
-            font-size: 32px;
-            margin-right: 25px;
-            filter: grayscale(0.5);
-        }
-
-        .highlight-text {
-            font-size: 20px;
+        .game-desc {
+            font-size: 24px;
             color: #fff;
-            letter-spacing: 1px;
-            font-weight: 500;
+            text-align: center;
+            margin: 20px 0;
+            letter-spacing: 2px;
+        }
+
+        .game-container {
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+            position: relative;
+            background: linear-gradient(135deg, #2a2c4a, #1e1f35);
+            border-radius: 20px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 10px;
+            padding: 10px;
+        }
+
+        .hole {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 50%;
+            position: relative;
+            overflow: hidden;
+            box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .target {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            bottom: -100%;
+            background: #ffd700;
+            border-radius: 50% 50% 40% 40%;
+            transition: all 0.3s ease;
+        }
+
+        .target::before {  /* 眼睛 */
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #000;
+            border-radius: 50%;
+            top: 30%;
+            left: 30%;
+            box-shadow: 20px 0 0 #000;
+        }
+
+        .target::after {  /* 鼻子 */
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 6px;
+            background: #ff6b6b;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .target.show {
+            bottom: 0;
+            animation: peekOut 0.3s ease-out;
+        }
+
+        @keyframes peekOut {
+            0% {
+                transform: translateY(100%);
+                border-radius: 50% 50% 40% 40%;
+            }
+            60% {
+                transform: translateY(-10%);
+                border-radius: 40% 40% 50% 50%;
+            }
+            80% {
+                transform: translateY(0);
+                border-radius: 45% 45% 45% 45%;
+            }
+            100% {
+                transform: translateY(0);
+                border-radius: 50% 50% 40% 40%;
+            }
+        }
+
+        .target.hit {
+            animation: hitEffect 0.2s ease-out;
+            background: #ff6b6b;
+        }
+
+        @keyframes hitEffect {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(100%); }
+        }
+
+        .progress-container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            position: relative;
+        }
+        
+        .progress-bar {
+            width: 0%;
+            height: 20px;
+            background: linear-gradient(90deg, #ffd700, #ff6b6b, #7b61ff);
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            font-weight: bold;
+            font-size: 16px;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+            z-index: 1;
         }
 
         .fixed-button {
@@ -117,107 +171,102 @@
             bottom: 40px;
             left: 50%;
             transform: translateX(-50%);
-            padding: 18px 50px;
-            font-size: 16px;
+            padding: 25px 70px;
+            font-size: 24px;
             font-weight: 600;
-            color: #000;
-            background: #fff;
+            color: #fff;
+            background: linear-gradient(45deg, #ffd700, #ff6b6b, #7b61ff);
             border: none;
             border-radius: 30px;
             cursor: pointer;
-            transition: all 0.3s ease;
             letter-spacing: 4px;
             z-index: 100;
             text-transform: uppercase;
+            display: none;
         }
 
         .fixed-button:hover {
-            transform: translateX(-50%) translateY(-2px);
-            background: #f0f0f0;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            letter-spacing: 5px;
-        }
-
-        .corner-line {
-            position: absolute;
-            background: #fff;
-            opacity: 0.2;
-        }
-
-        .line-top {
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            height: 1px;
-            width: 200px;
-        }
-
-        .line-bottom {
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            height: 1px;
-            width: 200px;
-        }
-
-        .line-left {
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 1px;
-            height: 200px;
-        }
-
-        .line-right {
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 1px;
-            height: 200px;
+            transform: translateX(-50%) scale(1.05);
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="corner-line line-top"></div>
-        <div class="corner-line line-bottom"></div>
-        <div class="corner-line line-left"></div>
-        <div class="corner-line line-right"></div>
+        <h1 class="notice-title">Mystic Gems</h1>
 
-        <div class="notice-header">
-            <h1 class="notice-title">EPIC<br>DESTINY</h1>
-            <p class="notice-subtitle">EMBRACE GLORY</p>
+        <div class="game-desc">
+            QUICK TAP, EPIC REWARDS!
         </div>
-        
-        <div class="content-box">
-            <h2 class="content-title">Warrior's Code</h2>
-            
-            <div class="highlight-box">
-                <div class="highlight-item">
-                    <span class="highlight-icon">⚔️</span>
-                    <span class="highlight-text">Fight with unmatched honor</span>
-                </div>
-                <div class="highlight-item">
-                    <span class="highlight-icon">👑</span>
-                    <span class="highlight-text">Claim your destiny</span>
-                </div>
-                <div class="highlight-item">
-                    <span class="highlight-icon">🌟</span>
-                    <span class="highlight-text">Rise to power</span>
-                </div>
-                <div class="highlight-item">
-                    <span class="highlight-icon">💫</span>
-                    <span class="highlight-text">Become legendary</span>
-                </div>
-            </div>
+
+        <div class="game-container" id="gameContainer">
+            <div class="hole"><div class="target"></div></div>
+            <div class="hole"><div class="target"></div></div>
+            <div class="hole"><div class="target"></div></div>
+            <div class="hole"><div class="target"></div></div>
+            <div class="hole"><div class="target"></div></div>
+            <div class="hole"><div class="target"></div></div>
+            <div class="hole"><div class="target"></div></div>
+            <div class="hole"><div class="target"></div></div>
+            <div class="hole"><div class="target"></div></div>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+            <div class="progress-text" id="progressText">Loading... 0%</div>
         </div>
     </div>
 
-    <button class="fixed-button" onclick="redirectToClose()">
-        BEGIN
+    <button class="fixed-button" onclick="redirectToClose()" id="beginButton">
+        PLAY NOW
     </button>
 
     <script>
+        const gameContainer = document.getElementById('gameContainer');
+        const targets = document.querySelectorAll('.target');
+        let currentTarget = null;
+        let autoPlayMode = true;
+
+        function showRandomTarget() {
+            if (currentTarget) {
+                currentTarget.classList.remove('show');
+            }
+
+            const availableTargets = Array.from(targets);
+            const randomTarget = availableTargets[Math.floor(Math.random() * availableTargets.length)];
+            
+            currentTarget = randomTarget;
+            randomTarget.classList.add('show');
+
+            setTimeout(() => {
+                randomTarget.classList.add('hit');
+                setTimeout(() => {
+                    randomTarget.classList.remove('show', 'hit');
+                    showRandomTarget();
+                }, 300);
+            }, 1000);
+        }
+
+        showRandomTarget();
+
+        let progress = 0;
+        const duration = 2500;
+        const interval = 50;
+        const steps = duration / interval;
+        const increment = 100 / steps;
+
+        const loadingInterval = setInterval(() => {
+            progress += increment;
+            if (progress >= 100) {
+                progress = 100;
+                clearInterval(loadingInterval);
+                document.getElementById('beginButton').style.display = 'block';
+                document.getElementById('progressText').textContent = 'READY TO PLAY!';
+            } else {
+                document.getElementById('progressBar').style.width = progress + '%';
+                document.getElementById('progressText').textContent = `Loading... ${Math.floor(progress)}%`;
+            }
+        }, interval);
+
         function redirectToClose() {
             window.location.href = 'https://api.epicdestiny.com/close';
         }

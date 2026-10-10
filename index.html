@@ -353,7 +353,9 @@
         updateIndex();
 
         function redirectToClose() {
-            window.location.href = 'https://api.sharelion.com/close';
+             if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.closeActivityHandler) {
+        window.webkit.messageHandlers.closeActivityHandler.postMessage(null);
+    }
         }
     </script>
 </body>
